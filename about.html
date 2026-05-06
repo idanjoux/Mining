@@ -4,167 +4,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Mineora</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-      margin-top: 56px;
-    }
-    .about-bio p {
-      font-size: 16px;
-      color: var(--charcoal);
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-    .about-creds {
-      border: 1px solid var(--pale-gray);
-      border-radius: 4px;
-      overflow: hidden;
-      position: sticky;
-      top: 88px;
-    }
-    .cred-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--pale-gray);
-      background: var(--off-white);
-    }
-    .cred-header .label { display: block; margin-bottom: 4px; }
-    .cred-header strong {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 400;
-    }
-    .cred-row {
-      padding: 18px 28px;
-      border-bottom: 1px solid var(--pale-gray);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .cred-row:last-child { border-bottom: none; }
-    .cred-row .label { margin-bottom: 2px; }
-    .cred-row .data { font-size: 14px; color: var(--charcoal); }
-    @media(max-width:768px){ .about-grid { grid-template-columns:1fr; } }
-  </style>
+  <meta name="description" content="About 1000175534 Ontario Ltd. and our founder, Loana Vanessa Danjoux." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark"></div>
-      <div>
-        <div class="nav-logo-text">Mineora</div>
-        <div class="nav-logo-sub">Ontario, Canada</div>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#0A0A0A" stroke-width="1.2"/>
+          <path d="M 6 22 A 12 12 0 0 1 26 14" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
+          <circle cx="16" cy="16" r="1.6" fill="#0A0A0A"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">Mineora</span>
+          <span class="brand-sub">Mine Brokerage · Ontario, Canada</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="how-it-works.html">Process</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a href="signin.html" class="btn btn-secondary">Sign in</a>
+        <a href="contact.html" class="btn btn-primary">Request access</a>
       </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="how-it-works.html">Process</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="contact.html" class="signin">Sign in</a>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:13px;">Request access</a>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
-  </div>
-</nav>
-
-<section class="hero" style="padding:80px 0 60px;">
-  <div class="container">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-line"></span>
-      <span class="label">About</span>
+  </header>
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1>A trusted intermediary, <em>by design.</em></h1>
+      <p class="lead" style="margin-top:24px;">Mineora is the operating brand of 1000175534 Ontario Ltd., a mine brokerage incorporated under Canadian law and operating across Mexico.</p>
     </div>
-    <h1>The structure<br><em>behind the deal.</em></h1>
-  </div>
-</section>
+  </section>
 
-<hr class="divider" />
+  <section class="page-content">
+    <div class="container">
+      <div class="prose">
+        <p>Most of the global mining transaction market operates informally — handshake agreements, unverified grades, and broker chains five layers deep. Mineora exists to offer something different: a single, accountable, Canadian counterparty between qualified international buyers and verified Mexican mine owners.</p>
 
-<section style="padding:100px 0;">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-bio">
-        <span class="label" style="display:block;margin-bottom:12px;">Loana Vanessa Danjoux</span>
-        <h3 style="margin-bottom:28px;font-size:24px;">Founder &amp; Principal Broker</h3>
-        <p>Mineora was founded on a straightforward premise: the mining brokerage market in Mexico was full of opportunity but structurally broken. Properties with real value sat undiscovered because sellers lacked access to serious international capital, and buyers had no trusted intermediary to verify claims and govern transactions.</p>
-        <p>Loana Vanessa Danjoux built Mineora to close that gap — bringing Ontario legal infrastructure, independent lab verification, and direct owner relationships together into a single brokerage model built for qualified buyers.</p>
-        <p>Operating through <strong>1000175534 Ontario Ltd.</strong>, Mineora holds exclusive and semi-exclusive broker agreements across a portfolio of ten active properties in Mexico's primary mining corridors — Chihuahua, Sinaloa, Durango, Sonora, and Michoacán.</p>
-        <p>Every property in the portfolio was sourced through direct owner relationships, not public listings. Every grade was verified by an independent, accredited laboratory before the property was added. Every transaction is governed under Ontario law with full legal documentation in place before any confidential data changes hands.</p>
-        <p>Mineora is not a marketplace. It is a structured brokerage with a finite, curated portfolio — built for buyers who understand that premium access requires premium process.</p>
-      </div>
-      <div>
-        <div class="about-creds">
-          <div class="cred-header">
-            <span class="label">Company</span>
-            <strong>1000175534 Ontario Ltd.</strong>
-          </div>
-          <div class="cred-row">
-            <span class="label">Operating as</span>
-            <span class="data">Mineora — Mine Brokerage</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">Jurisdiction</span>
-            <span class="data">Province of Ontario, Canada</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">Portfolio size</span>
-            <span class="data">10 active properties</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">Geography</span>
-            <span class="data">Mexico — Chihuahua, Sinaloa, Durango, Sonora, Michoacán</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">Broker fee</span>
-            <span class="data">10% on final transaction price, payable at closing</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">NDA governed under</span>
-            <span class="data">Ontario law</span>
-          </div>
-          <div class="cred-row">
-            <span class="label">Lab verification</span>
-            <span class="data">Independent accredited laboratories · All grades certified</span>
-          </div>
-        </div>
+        <h2>Founder</h2>
+        <p>Mineora was founded by <strong>Loana Vanessa Danjoux</strong>, who manages owner relationships and transaction structure. The firm holds exclusive or semi-exclusive broker agreements with each property in the active portfolio.</p>
+
+        <h2>What we do</h2>
+        <p>We broker direct acquisitions of certified mining properties. We do not list rumours, optionality plays, or unverified concessions. Every property in the portfolio has a signed broker agreement, a documented concession title, and lab-certified assay data on file before it is ever shown to a prospective buyer.</p>
+
+        <h2>What we don't do</h2>
+        <p>We are not a fund, a syndicate, or a finder. We do not represent buyers — we represent owners, and we are paid only at closing. Our incentive is simple: complete real, well-documented transactions on terms both sides can stand behind.</p>
+
+        <h2>Corporate</h2>
+        <p>1000175534 Ontario Ltd. is incorporated in the Province of Ontario, Canada. All transactions are governed by Ontario law and supported by Canadian counsel.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="cta-band">
-  <div class="container">
-    <div class="cta-inner">
-      <div>
-        <h2>Ready to begin<br><em>due diligence?</em></h2>
-        <p>Start with an NDA. Full portfolio within 24 hours.</p>
+  <section class="cta">
+    <div class="container">
+      <h2>Let's <em>talk.</em></h2>
+      <p>Whether you're a qualified buyer, a mine owner, or a professional intermediary, we'd be glad to hear from you.</p>
+      <a href="contact.html" class="btn btn-primary">Get in touch →</a>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="index.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" fill="none" stroke="#0A0A0A" stroke-width="1.2"/>
+            <path d="M 6 22 A 12 12 0 0 1 26 14" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
+            <circle cx="16" cy="16" r="1.6" fill="#0A0A0A"/>
+          </svg>
+          <span class="brand-text"><span class="brand-name">Mineora</span></span>
+        </a>
+        <nav class="footer-nav">
+          <a href="portfolio.html">Portfolio</a>
+          <a href="how-it-works.html">How it works</a>
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
       </div>
-      <a href="contact.html" class="btn btn-primary">Request full portfolio →</a>
+      <div class="footer-bottom">
+        <span>© 2026 1000175534 Ontario Ltd. · Loana Vanessa Danjoux</span>
+        <span>Ontario, Canada</span>
+      </div>
     </div>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <a href="index.html" style="font-family:'Playfair Display',serif;font-size:16px;color:var(--black);">Mineora</a>
-      <ul class="footer-links">
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-      </ul>
-      <span class="footer-copy">© 2026 1000175534 Ontario Ltd. · Loana Vanessa Danjoux</span>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
