@@ -3,204 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Baluarte — Confidential — Mineora</title>
-  <meta name="description" content="Confidential acquisition file for Proyecto Baluarte." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <title>Proyecto Baluarte — Mineora</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="brand">
-        <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="#0A0A0A" stroke-width="1.2"/>
-          <path d="M 6 22 A 12 12 0 0 1 26 14" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
-          <circle cx="16" cy="16" r="1.6" fill="#0A0A0A"/>
-        </svg>
-        <span class="brand-text">
-          <span class="brand-name">Mineora</span>
-          <span class="brand-sub">Mine Brokerage · Ontario, Canada</span>
-        </span>
-      </a>
-      <nav class="site-nav">
-        <a href="../portfolio.html">Portfolio</a>
-        <a href="../how-it-works.html">Process</a>
-        <a href="../about.html">About</a>
-        <a href="../contact.html">Contact</a>
-      </nav>
-      <div class="header-cta">
-        <a href="../signin.html" class="btn btn-secondary">Sign in</a>
-        <a href="../contact.html" class="btn btn-primary">Request access</a>
-      </div>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+<!-- Password Gate -->
+<div id="gate-overlay" class="gate-overlay">
+  <div class="gate-box">
+    <div class="gate-mark"></div>
+    <h2>Restricted access</h2>
+    <p>This acquisition detail is password protected. Enter your access code to continue.</p>
+    <div class="gate-form">
+      <input type="password" id="gate-password" class="gate-input" placeholder="Enter password…" autocomplete="off" />
+      <span id="gate-error" class="gate-error">Incorrect password. Please try again.</span>
+      <button id="gate-submit" class="gate-btn">Continue →</button>
     </div>
-  </header>
-  <!-- Password gate -->
-  <div id="acq-gate" class="gate" style="display:none;">
-    <div class="gate-card">
-      <svg class="gate-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <rect x="11" y="22" width="26" height="18" rx="2" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
-        <path d="M 16 22 V 16 a 8 8 0 0 1 16 0 V 22" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
-        <circle cx="24" cy="30" r="1.6" fill="#0A0A0A"/>
-        <path d="M 24 31.6 v 3.4" stroke="#0A0A0A" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <span class="eyebrow">Confidential — NDA</span>
-      <h2>Restricted property file</h2>
-      <p>This acquisition file is available to qualified buyers under active NDA. Enter your access code to continue.</p>
-      <form id="gate-form" class="gate-form" autocomplete="off">
-        <input id="gate-input" class="gate-input" type="password" placeholder="Access code" autocomplete="off" autocapitalize="off" spellcheck="false" />
-        <button type="submit" class="btn btn-primary">Unlock file →</button>
-        <div id="gate-error" class="gate-error" aria-live="polite"></div>
-      </form>
-      <div class="gate-meta">Proyecto Baluarte · Exploration</div>
+    <p style="margin-top:20px;font-size:12px;color:var(--mid-gray);">Need access? <a href="../contact.html" style="color:var(--black);">Contact us →</a></p>
+  </div>
+</div>
+
+<div id="page-content" class="page-content">
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      <div>
+        <div class="nav-logo-text">Mineora</div>
+        <div class="nav-logo-sub">Ontario, Canada</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="../how-it-works.html">Process</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="../contact.html" class="signin">Sign in</a>
+      <a href="../contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:13px;">Request access</a>
     </div>
   </div>
-  <!-- Acquisition content -->
-  <div id="acq-content" style="display:none;">
+</nav>
 
-    <section class="acq-hero">
-      <div class="container">
-        <a href="../portfolio.html" class="acq-back">← Back to portfolio</a>
-        <div class="acq-title">
-          <div>
-            <span class="eyebrow">Acquisition file</span>
-            <h1>Proyecto Baluarte</h1>
-            <div class="location">Concordia, Sinaloa–Durango</div>
-          </div>
-          <div class="acq-status">
-            <span class="stage-pill">Exploration</span>
-            <span>File reference · PROYECTO-BALUARTE</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding:0;">
-      <div class="container">
-        <div class="acq-meta-bar">
-          <div class="acq-meta-item">
-            <span class="acq-meta-label">Mineral</span>
-            <span class="acq-meta-value">Gold · Silver</span>
-          </div>
-          <div class="acq-meta-item">
-            <span class="acq-meta-label">Key metric</span>
-            <span class="acq-meta-value">5,959 oz Au inferred</span>
-          </div>
-          <div class="acq-meta-item">
-            <span class="acq-meta-label">Stage</span>
-            <span class="acq-meta-value">Exploration</span>
-          </div>
-          <div class="acq-meta-item">
-            <span class="acq-meta-label">Asking</span>
-            <span class="acq-meta-value">TBD NDA</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding-top:0;">
-      <div class="container">
-        <div class="acq-body">
-          <div>
-            <div class="acq-section">
-              <span class="eyebrow">Overview</span>
-              <h3>Property summary</h3>
-              <div class="placeholder-box">
-                <strong>[ Placeholder — property summary ]</strong>
-                Replace this block with a 2–3 paragraph overview of Proyecto Baluarte: history, ownership, concession status, and strategic context.
-              </div>
-            </div>
-
-            <div class="acq-section">
-              <span class="eyebrow">Geology</span>
-              <h3>Geology &amp; mineralization</h3>
-              <div class="placeholder-box">
-                <strong>[ Placeholder — geology ]</strong>
-                Describe host rock, structural controls, mineralization style, and the size and orientation of known zones. Reference any NI 43-101 documentation.
-              </div>
-            </div>
-
-            <div class="acq-section">
-              <span class="eyebrow">Lab data</span>
-              <h3>Assay &amp; certification</h3>
-              <div class="placeholder-box">
-                <strong>[ Placeholder — assay data ]</strong>
-                Insert summary of assay certificates, lab name(s), sample counts, and headline grades. Attach or link to certificate PDFs.
-              </div>
-            </div>
-
-            <div class="acq-section">
-              <span class="eyebrow">Infrastructure</span>
-              <h3>Access &amp; infrastructure</h3>
-              <div class="placeholder-box">
-                <strong>[ Placeholder — infrastructure ]</strong>
-                Road access, water, power, nearest town, distance to processing facilities, and any existing surface or underground works.
-              </div>
-            </div>
-
-            <div class="acq-section">
-              <span class="eyebrow">Deal structure</span>
-              <h3>Transaction</h3>
-              <div class="placeholder-box">
-                <strong>[ Placeholder — deal structure ]</strong>
-                Asset vs. share sale, asking price, deposit terms, royalty or earn-in structures, exclusivity period, and broker fee.
-              </div>
-            </div>
-          </div>
-
-          <aside class="acq-aside">
-            <div class="aside-card">
-              <h4>File at a glance</h4>
-              <ul class="aside-list">
-                <li><span class="label">Property</span> <span>Proyecto Baluarte</span></li>
-                <li><span class="label">Location</span> <span>Concordia, Sinaloa–Durango</span></li>
-                <li><span class="label">Size</span> <span>—</span></li>
-                <li><span class="label">Mineral</span> <span>Gold · Silver</span></li>
-                <li><span class="label">Metric</span> <span>5,959 oz Au inferred</span></li>
-                <li><span class="label">Stage</span> <span>Exploration</span></li>
-                <li><span class="label">Asking</span> <span>TBD NDA</span></li>
-              </ul>
-              <div class="aside-cta">
-                <a href="../contact.html" class="btn btn-primary">Request full memorandum →</a>
-              </div>
-            </div>
-            <div class="aside-card" style="background:var(--off-white);">
-              <h4 style="margin-bottom:12px;">Next step</h4>
-              <p style="font-size:13px; line-height:1.7; color:var(--charcoal); margin:0;">Submit a written expression of interest. We'll arrange an introductory call with the owner's technical team within five business days.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
+<!-- Acquisition Hero -->
+<section class="acq-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../portfolio.html">Portfolio</a>
+      <span>/</span>
+      <span style="color:var(--black);">Proyecto Baluarte</span>
+    </div>
+    <span class="label" style="display:block;margin-bottom:12px;">Gold · Silver</span>
+    <h1>Proyecto Baluarte</h1>
+    <p class="location">Concordia, Sinaloa–Durango, Mexico</p>
+    <div class="acq-tags">
+      <span class="acq-tag">Gold</span><span class="acq-tag">Silver</span><span class="acq-tag">Sinaloa</span><span class="acq-tag">Durango</span><span class="acq-tag">Exploration</span>
+    </div>
   </div>
-  <script src="../assets/js/gate.js"></script>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <a href="../index.html" class="brand">
-          <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="14" fill="none" stroke="#0A0A0A" stroke-width="1.2"/>
-            <path d="M 6 22 A 12 12 0 0 1 26 14" fill="none" stroke="#0A0A0A" stroke-width="1.4"/>
-            <circle cx="16" cy="16" r="1.6" fill="#0A0A0A"/>
-          </svg>
-          <span class="brand-text"><span class="brand-name">Mineora</span></span>
-        </a>
-        <nav class="footer-nav">
-          <a href="../portfolio.html">Portfolio</a>
-          <a href="../how-it-works.html">How it works</a>
-          <a href="../about.html">About</a>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../terms.html">Terms</a>
-        </nav>
+</section>
+
+<hr class="divider" />
+
+<!-- Body -->
+<section class="acq-body">
+  <div class="container">
+    <div class="acq-grid">
+      <!-- Left: metrics + desc -->
+      <div>
+        <div class="acq-metrics">
+          
+        <div class="metric-cell">
+          <div class="metric-label">Gold Resource</div>
+          <div class="metric-value">5,959 oz Au</div>
+          <div class="metric-sub">Inferred</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Minerals</div>
+          <div class="metric-value">Au · Ag</div>
+          <div class="metric-sub">Gold-silver</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Stage</div>
+          <div class="metric-value">Exploration</div>
+          <div class="metric-sub">Active</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Region</div>
+          <div class="metric-value">Sinaloa–Durango</div>
+          <div class="metric-sub">Border zone</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Asking Price</div>
+          <div class="metric-value">Disclosed post-NDA</div>
+          <div class="metric-sub">Pricing on execution</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Certification</div>
+          <div class="metric-value">Assay certified</div>
+          <div class="metric-sub">Independent lab</div>
+        </div>
+        </div>
+        <div class="acq-desc">
+          
+      <div class="acq-desc-heading">Overview</div>
+      <p>Proyecto Baluarte is a gold-silver exploration property in the Concordia municipality, located at the Sinaloa–Durango border — a zone that captures the mineralised corridor connecting two of Mexico's premier gold-producing states. The property carries an inferred resource of 5,959 ounces of gold, confirmed by independent assay.</p>
+      <div class="acq-desc-heading">Geology &amp; Resource</div>
+      <p>The Baluarte project is situated along a structural corridor that intersects known gold-silver vein systems in the Sierra Madre Occidental. The 5,959 oz Au inferred figure is based on surface sampling and shallow trenching, with the resource open at depth and along strike — suggesting meaningful upside for a systematic exploration program.</p>
+      <ul class="acq-ul">
+        <li>5,959 oz Au inferred — independent assay confirmed</li>
+        <li>Open at depth — no deep drilling completed</li>
+        <li>Multiple vein targets identified — resource covers primary zone only</li>
+        <li>Silver credits present across sampled zones</li>
+        <li>Accessible terrain — road access to main zone</li>
+      </ul>
+      <div class="acq-desc-heading">Strategic Value</div>
+      <p>For a buyer with exploration appetite, Proyecto Baluarte offers a meaningful resource base at exploration-stage pricing, with the upside of a district-scale exploration corridor that has not been fully tested. The Concordia area has produced significant gold historically, and this property sits within a geologically favorable structural position.</p>
+      <div class="acq-desc-heading">Pricing</div>
+      <p>Pricing is disclosed post-NDA. Full assay data, exploration mapping, and deal structure are included in the information memorandum provided upon NDA execution.</p>
+    
+        </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 1000175534 Ontario Ltd. · Loana Vanessa Danjoux</span>
-        <span>Ontario, Canada</span>
+      <!-- Sidebar -->
+      <div class="acq-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-asking"><span class="label" style="display:block;margin-bottom:6px;">Asking price</span><div class="price nda">TBD · NDA</div></div>
+          <a href="../contact.html" class="btn btn-primary" style="justify-content:center;">Express interest →</a>
+          <a href="../contact.html" class="btn btn-outline" style="justify-content:center;">Request NDA →</a>
+          <p class="sidebar-note">All properties require a signed NDA before full documentation is released. 10% broker fee applies at closing.</p>
+        </div>
+        <div style="border:1px solid var(--pale-gray);border-radius:4px;padding:24px;font-size:13px;color:var(--mid-gray);line-height:1.6;">
+          <strong style="color:var(--black);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Stage</strong><br/>
+          <span style="font-family:'Playfair Display',serif;font-size:18px;color:var(--black);">Exploration</span>
+          <hr style="border:none;border-top:1px solid var(--pale-gray);margin:16px 0;" />
+          <strong style="color:var(--black);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;">Location</strong><br/>
+          <span style="color:var(--charcoal);">Concordia, Sinaloa–Durango, Mexico</span>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Interested in<br><em>Proyecto Baluarte?</em></h2>
+        <p>Execute the NDA to receive full documentation.</p>
+      </div>
+      <a href="../contact.html" class="btn btn-primary">Request NDA →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="../index.html" style="font-family:'Playfair Display',serif;font-size:16px;color:var(--black);">Mineora</a>
+      <ul class="footer-links">
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../how-it-works.html">How it works</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 1000175534 Ontario Ltd. · Loana Vanessa Danjoux</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-content -->
+
+<script src="../js/gate.js"></script>
 </body>
 </html>
