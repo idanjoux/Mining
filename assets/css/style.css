@@ -447,6 +447,28 @@ section {
   color: var(--charcoal);
 }
 
+/* Sold row & pill — non-interactive, visibly de-emphasized */
+.property-row--sold {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.property-row--sold:hover {
+  background: transparent;
+  opacity: 0.55;
+}
+
+.property-row--sold .arrow {
+  visibility: hidden;
+}
+
+.stage-pill--sold {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+  letter-spacing: 0.15em;
+}
+
 .portfolio-footer {
   display: flex;
   justify-content: space-between;
