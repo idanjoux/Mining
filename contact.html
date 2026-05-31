@@ -47,7 +47,7 @@
 
   <section class="page-content">
     <div class="container">
-      <form class="form-grid" onsubmit="event.preventDefault(); alert('Thanks — we\'ll be in touch within one business day.'); this.reset();">
+      <form class="form-grid" id="nda-form">
         <div class="form-row">
           <label for="name">Full name</label>
           <input id="name" name="name" type="text" required />
@@ -82,7 +82,64 @@
         <div class="form-row full">
           <button type="submit" class="btn btn-primary form-submit">Send request →</button>
         </div>
+        <div class="form-row full">
+          <p style="font-size:12px; color:var(--mid-gray); margin-top:4px;">
+            Submitting will open your email application with a pre-filled message addressed to our office. If your browser does not open an email client, please write to
+            <a href="mailto:vanessadanjoux@me.com" style="color:var(--charcoal); text-decoration:underline;">vanessadanjoux@me.com</a> directly.
+          </p>
+        </div>
       </form>
+
+      <script>
+        (function () {
+          var RECIPIENT = 'vanessadanjoux@me.com';
+          var form = document.getElementById('nda-form');
+          if (!form) return;
+
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var val = function (id) {
+              var el = document.getElementById(id);
+              return el ? (el.value || '').trim() : '';
+            };
+
+            var name     = val('name');
+            var org      = val('org');
+            var email    = val('email');
+            var phone    = val('phone');
+            var interest = val('interest');
+            var message  = val('message');
+
+            var subject = 'Mineora — NDA / Portfolio access request' + (name ? ' — ' + name : '');
+
+            var lines = [
+              'Mineora — Portfolio Access Request',
+              '----------------------------------',
+              '',
+              'Name:          ' + (name     || '—'),
+              'Organization:  ' + (org      || '—'),
+              'Email:         ' + (email    || '—'),
+              'Phone:         ' + (phone    || '—'),
+              'Interest:      ' + (interest || '—'),
+              '',
+              'Message:',
+              (message || '—'),
+              '',
+              '---',
+              'Sent from mineora.ca contact form'
+            ];
+            var body = lines.join('\r\n');
+
+            var href = 'mailto:' + RECIPIENT
+              + '?subject=' + encodeURIComponent(subject)
+              + '&body='    + encodeURIComponent(body);
+
+            // Open the user's email client.
+            window.location.href = href;
+          });
+        })();
+      </script>
     </div>
   </section>
   <footer class="site-footer">
