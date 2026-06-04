@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Elisa — Confidential Investment Teaser</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink:        #0E0E0E;
+  --ink-2:      #2C2C2C;
+  --ink-3:      #5A5A5A;
+  --ink-4:      #8A8A8A;
+  --rule:       #D8D3CC;
+  --rule-light: #EBEBEB;
+  --accent:     #2E7DB8;
+  --accent-pale:#D6EAF5;
+  --accent-deep:#1F5980;
+  --page:       #FAFAF8;
+  --page-2:     #EDF4F9;
+  --white:      #FFFFFF;
+  --verified:   #4E8C5C;
+  --verified-pale:#E6F0E8;
+}
+
+html { font-size: 15px; }
+
+body {
+  background: #DDE5EA;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.document {
+  max-width: 860px;
+  margin: 48px auto;
+  background: var(--page);
+  box-shadow: 0 4px 60px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+/* COVER */
+.cover {
+  background: var(--white);
+  min-height: 640px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.cover-topbar { height: 4px; background: var(--accent); }
+.cover-nav { padding: 36px 56px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+.cover-badge { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 5px 12px; }
+.cover-meta { text-align: right; }
+.cover-meta .meta-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-4); display: block; }
+.cover-meta .meta-val { font-size: 12px; font-weight: 400; color: var(--ink-3); display: block; margin-top: 2px; }
+.cover-body { padding: 80px 56px 40px; align-self: center; }
+.cover-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.cover-title { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1.02; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 18px; }
+.cover-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+.cover-subtitle { font-size: 17px; font-weight: 300; line-height: 1.55; color: var(--ink-3); max-width: 620px; }
+.cover-footer { padding: 32px 56px 36px; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--rule-light); }
+.cover-footer .brand { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: 0.18em; color: var(--ink); }
+.cover-footer .brand-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-4); margin-top: 4px; }
+.cover-footer .nda { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-4); text-align: right; }
+
+/* SECTION */
+.section { padding: 64px 56px; background: var(--page); border-top: 1px solid var(--rule-light); }
+.section-num { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 32px; max-width: 640px; }
+.section-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+.section-lead { font-size: 16px; line-height: 1.65; color: var(--ink-3); max-width: 640px; margin-bottom: 32px; }
+
+/* ELEMENTS STRIP */
+.elements { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.element { padding: 28px 24px; border-right: 1px solid var(--rule-light); }
+.element:last-child { border-right: none; }
+.element-symbol { font-family: 'DM Serif Display', serif; font-size: 44px; line-height: 1; color: var(--ink); margin-bottom: 8px; }
+.element-cs .element-symbol { color: var(--accent); }
+.element-rb .element-symbol { color: #B04545; }
+.element-li .element-symbol { color: var(--ink-4); }
+.element-name { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px; }
+.element-peak { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.element-role { font-size: 12px; color: var(--ink-3); font-style: italic; line-height: 1.5; }
+.element-li .element-role { color: var(--ink-4); }
+
+/* VERIFIED BANNER */
+.verified { margin-top: 32px; border: 1px solid var(--verified); background: var(--verified-pale); padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.verified-tick { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--verified); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.verified-text { font-size: 13px; line-height: 1.6; color: var(--ink-2); }
+.verified-text strong { font-weight: 600; color: var(--verified); letter-spacing: 0.5px; }
+
+/* LAB BLOCK */
+.lab-block { background: var(--white); border: 1px solid var(--rule); padding: 28px 28px 24px; margin-bottom: 24px; }
+.lab-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--rule-light); margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+.lab-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--ink); }
+.lab-sub { font-size: 12px; color: var(--ink-4); margin-top: 3px; font-style: italic; }
+.lab-meta-right { font-size: 11px; letter-spacing: 0.5px; color: var(--ink-4); text-align: right; line-height: 1.7; }
+.lab-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.lab-table thead th { text-align: left; padding: 10px 8px; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-4); border-bottom: 1px solid var(--rule); }
+.lab-table thead th.num { text-align: right; }
+.lab-table tbody td { padding: 11px 8px; border-bottom: 1px solid var(--rule-light); color: var(--ink-2); }
+.lab-table tbody tr:last-child td { border-bottom: none; }
+.lab-table tbody td.sample { font-style: italic; color: var(--ink-3); font-size: 12px; }
+.lab-table tbody td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.lab-table tbody tr.peak td { background: var(--accent-pale); }
+.lab-table tbody tr.peak td.num { color: var(--accent-deep); font-weight: 600; }
+.lab-footnote { font-size: 11px; color: var(--ink-4); font-style: italic; margin-top: 12px; line-height: 1.55; }
+
+.lab-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+.lab-stat { border-left: 2px solid var(--accent); padding: 12px 18px; background: var(--page-2); }
+.lab-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-4); margin-bottom: 4px; }
+.lab-stat-value { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); line-height: 1.1; }
+.lab-stat-value .unit { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--ink-4); margin-left: 4px; font-weight: 400; }
+
+/* TWO-COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.col h4 { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 19px; color: var(--accent); margin-bottom: 12px; line-height: 1.3; }
+.col p { font-size: 14px; line-height: 1.65; color: var(--ink-2); margin-bottom: 10px; }
+.col p.muted { color: var(--ink-4); font-size: 13px; }
+
+/* MARKET */
+.market-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); background: var(--white); }
+.market-card { padding: 32px 26px; border-right: 1px solid var(--rule-light); }
+.market-card:last-child { border-right: none; }
+.market-symbol { font-family: 'DM Serif Display', serif; font-size: 56px; line-height: 1; margin-bottom: 4px; }
+.market-card.cs .market-symbol { color: var(--accent); }
+.market-card.rb .market-symbol { color: #B04545; }
+.market-name { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-4); margin-bottom: 22px; }
+.market-row { display: grid; grid-template-columns: 45% 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--rule-light); font-size: 12.5px; }
+.market-row:last-child { border-bottom: none; }
+.market-label { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-4); }
+.market-value { color: var(--ink-2); font-weight: 500; }
+.market-value .hi { color: var(--accent-deep); font-weight: 600; }
+.market-card.rb .market-value .hi { color: #8C3535; }
+
+/* PULL */
+.pull { margin-top: 28px; padding: 24px 28px; background: var(--page-2); border-left: 3px solid var(--accent); }
+.pull-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.pull p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 17px; line-height: 1.45; color: var(--ink-2); }
+.pull p strong { font-style: normal; font-weight: 400; color: var(--accent-deep); }
+.pull-cite { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: normal; color: var(--ink-4); letter-spacing: 0.5px; margin-left: 6px; }
+
+/* ASSET */
+.asset-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: start; }
+.asset-aside h4 { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 19px; color: var(--accent); margin-bottom: 12px; line-height: 1.3; }
+.asset-aside p { font-size: 13px; color: var(--ink-3); line-height: 1.65; margin-bottom: 10px; }
+.asset-rows { background: var(--white); border: 1px solid var(--rule); }
+.asset-row { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 14px 22px; border-bottom: 1px solid var(--rule-light); font-size: 13px; }
+.asset-row:last-child { border-bottom: none; }
+.asset-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-4); padding-top: 2px; }
+.asset-value { color: var(--ink-2); line-height: 1.55; }
+.asset-value .hi { color: var(--accent-deep); font-weight: 600; }
+
+/* TIERS */
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tier { background: var(--white); border: 1px solid var(--rule); padding: 24px 22px; }
+.tier-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.tier h4 { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; color: var(--ink); margin-bottom: 16px; line-height: 1.3; }
+.tier ul { list-style: none; }
+.tier li { font-size: 12.5px; color: var(--ink-3); padding: 7px 0; border-bottom: 1px solid var(--rule-light); padding-left: 14px; position: relative; }
+.tier li:last-child { border-bottom: none; }
+.tier li::before { content: "·"; color: var(--accent); position: absolute; left: 0; font-size: 16px; line-height: 1; top: 9px; }
+.tier li strong { color: var(--ink); font-weight: 600; }
+
+/* TRANSACTION */
+.tx-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.tx { border-top: 2px solid var(--accent); padding-top: 18px; }
+.tx h4 { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 21px; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.tx p { font-size: 12.5px; color: var(--ink-3); line-height: 1.6; }
+
+/* CONTACT */
+.contact-section { background: var(--page-2); padding: 64px 56px; border-top: 1px solid var(--rule-light); }
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.contact-text h3 { font-family: 'DM Serif Display', serif; font-size: 30px; line-height: 1.15; color: var(--ink); margin-bottom: 14px; }
+.contact-text h3 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.contact-text p { font-size: 14px; color: var(--ink-3); line-height: 1.65; max-width: 380px; }
+.contact-card { background: var(--white); border: 1px solid var(--rule); padding: 32px 28px; position: relative; }
+.contact-card::before { content: ""; position: absolute; top: -1px; left: -1px; width: 22px; height: 22px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+.contact-card::after { content: ""; position: absolute; bottom: -1px; right: -1px; width: 22px; height: 22px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+.contact-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.contact-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); margin-bottom: 3px; }
+.contact-role { font-size: 12px; color: var(--ink-4); margin-bottom: 22px; letter-spacing: 0.3px; }
+.contact-field { padding: 12px 0; border-top: 1px solid var(--rule-light); font-size: 12.5px; }
+.contact-field-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-4); margin-bottom: 3px; }
+.contact-field-value { color: var(--ink-2); font-weight: 500; }
+
+/* DOC FOOTER */
+.doc-footer { display: grid; grid-template-columns: auto 1fr; gap: 32px; padding: 28px 56px; background: var(--white); border-top: 1px solid var(--rule-light); font-size: 10px; color: var(--ink-4); line-height: 1.6; }
+.df-left { letter-spacing: 0.5px; font-weight: 500; }
+.df-right { font-style: italic; }
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+  .document { margin: 24px 16px; }
+  .cover-nav, .cover-body, .cover-footer, .section, .contact-section, .doc-footer { padding-left: 28px; padding-right: 28px; }
+  .cover-title { font-size: 44px; }
+  .section-title { font-size: 26px; }
+  .elements, .two-col, .market-grid, .tiers, .tx-grid, .lab-summary, .asset-grid, .contact-grid { grid-template-columns: 1fr; }
+  .element, .market-card { border-right: none; border-bottom: 1px solid var(--rule-light); }
+  .lab-table { font-size: 11.5px; }
+  .lab-table thead th, .lab-table tbody td { padding: 8px 4px; }
+  .doc-footer { grid-template-columns: 1fr; }
+  .asset-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<div class="document">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-topbar"></div>
+    <div class="cover-nav">
+      <div class="cover-badge">Confidential · Under NDA</div>
+      <div class="cover-meta">
+        <span class="meta-label">Codename</span>
+        <span class="meta-val">Project Elisa</span>
+      </div>
+    </div>
+    <div class="cover-body">
+      <div class="cover-eyebrow">Strategic Critical Minerals · Chihuahua, Mexico</div>
+      <h1 class="cover-title">A non-Chinese source of <em>cesium &amp; rubidium</em>, lab-verified.</h1>
+      <p class="cover-subtitle">Two of the world's most strategically concentrated critical minerals — currently controlled by a single Chinese operator — confirmed by two ALS Chemex certified analyses (2020 and 2021) on a 350-hectare permitted area with up to 3,000 additional hectares of contiguous exploration upside in northern Mexico.</p>
+    </div>
+    <div class="cover-footer">
+      <div>
+        <div class="brand">MINEORA</div>
+        <div class="brand-tag">Mining asset brokerage</div>
+      </div>
+      <div class="nda">June 2026 · For named recipient only</div>
+    </div>
+  </div>
+
+  <!-- HERO ELEMENTS + VERIFIED -->
+  <div class="section">
+    <div class="elements">
+      <div class="element element-cs">
+        <div class="element-symbol">Cs</div>
+        <div class="element-name">Cesium · 55</div>
+        <div class="element-peak">Peak 443 ppm</div>
+        <div class="element-role">Lead commodity · primary target</div>
+      </div>
+      <div class="element element-rb">
+        <div class="element-symbol">Rb</div>
+        <div class="element-name">Rubidium · 37</div>
+        <div class="element-peak">Peak 280 ppm</div>
+        <div class="element-role">High-margin co-product</div>
+      </div>
+      <div class="element element-li">
+        <div class="element-symbol">Li</div>
+        <div class="element-name">Lithium · 3</div>
+        <div class="element-peak">Peak 3,540 ppm</div>
+        <div class="element-role">Future upside · subject to Mexican State partnership framework</div>
+      </div>
+    </div>
+    <div class="verified">
+      <div class="verified-tick">✓</div>
+      <div class="verified-text">
+        <strong>LAB-VERIFIED</strong> — Cs, Rb, and Li grades confirmed across two ALS Chemex Certificates of Analysis (CH20063209 · April 2020 and CH21010699 · February 2021), totaling fourteen independent samples analyzed by ICP-MS (4-acid digestion, method ME-MS61). Signed by Saa Traxler, General Manager.
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 LAB DATA -->
+  <div class="section">
+    <div class="section-num">— 01 / Laboratory-verified mineralization</div>
+    <h2 class="section-title">The data, <em>uncut</em>.</h2>
+    <p class="section-lead">Two independent ALS Chemex Certificates of Analysis, completed thirteen months apart, demonstrate consistent cesium, rubidium, and lithium mineralization in the clay and zeolite host rock of the Satevó concession. All analyses were conducted by the standard ME-MS61 method (ICP-MS, 48 elements, 4-acid digestion).</p>
+
+    <div class="lab-block">
+      <div class="lab-header">
+        <div>
+          <div class="lab-title">Certificate CH21010699</div>
+          <div class="lab-sub">8 rock samples · ME-MS61 (ICP-MS, 4-acid)</div>
+        </div>
+        <div class="lab-meta-right">
+          1 February 2021<br>
+          ALS Chihuahua → Lima → Vancouver<br>
+          Signed: Saa Traxler, GM
+        </div>
+      </div>
+      <table class="lab-table">
+        <thead>
+          <tr>
+            <th>Sample</th>
+            <th class="num">Cs (ppm)</th>
+            <th class="num">Rb (ppm)</th>
+            <th class="num">Li (ppm)</th>
+            <th class="num">K (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="sample">POK SUP</td><td class="num">259</td><td class="num">280</td><td class="num">3,540</td><td class="num">5.31</td></tr>
+          <tr><td class="sample">POK3MNGO</td><td class="num">135</td><td class="num">225</td><td class="num">2,760</td><td class="num">4.70</td></tr>
+          <tr><td class="sample">POK3MVIO</td><td class="num">149</td><td class="num">239</td><td class="num">2,950</td><td class="num">4.61</td></tr>
+          <tr><td class="sample">POK3MBLCA</td><td class="num">128</td><td class="num">208</td><td class="num">2,630</td><td class="num">4.37</td></tr>
+          <tr class="peak"><td class="sample">699 TEOFILO</td><td class="num">443</td><td class="num">205</td><td class="num">1,390</td><td class="num">3.49</td></tr>
+          <tr><td class="sample">POK ENTERO</td><td class="num">116</td><td class="num">144</td><td class="num">1,290</td><td class="num">4.44</td></tr>
+          <tr><td class="sample">POK BLANCA</td><td class="num">84</td><td class="num">89</td><td class="num">409</td><td class="num">1.22</td></tr>
+        </tbody>
+      </table>
+      <p class="lab-footnote">Highlighted: 699 TEOFILO carries the peak Cs grade at 443 ppm. Eighth sample (PLACER) excluded as low-grade outlier.</p>
+    </div>
+
+    <div class="lab-block">
+      <div class="lab-header">
+        <div>
+          <div class="lab-title">Certificate CH20063209</div>
+          <div class="lab-sub">7 pulp samples · ME-MS61 (ICP-MS, 4-acid)</div>
+        </div>
+        <div class="lab-meta-right">
+          1 April 2020<br>
+          ALS Chihuahua → Vancouver<br>
+          Signed: Saa Traxler, GM
+        </div>
+      </div>
+      <table class="lab-table">
+        <thead>
+          <tr>
+            <th>Sample</th>
+            <th class="num">Cs (ppm)</th>
+            <th class="num">Rb (ppm)</th>
+            <th class="num">Li (ppm)</th>
+            <th class="num">Ag (ppm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="sample">Sustrato Calcario Pastel</td><td class="num">51</td><td class="num">52</td><td class="num">265</td><td class="num">13.0</td></tr>
+          <tr><td class="sample">Arcilla Blanca</td><td class="num">135</td><td class="num">101</td><td class="num">1,360</td><td class="num">57.5</td></tr>
+          <tr><td class="sample">Piedra Verde</td><td class="num">55</td><td class="num">105</td><td class="num">970</td><td class="num">20.0</td></tr>
+          <tr class="peak"><td class="sample">Arcilla Verde</td><td class="num">134</td><td class="num">193</td><td class="num">2,140</td><td class="num">23.6</td></tr>
+          <tr class="peak"><td class="sample">Arcilla Rosa</td><td class="num">173</td><td class="num">163</td><td class="num">1,490</td><td class="num">58.7</td></tr>
+        </tbody>
+      </table>
+      <p class="lab-footnote">Highlighted: Arcilla Verde and Arcilla Rosa carry the strongest combined Cs/Rb/Li signature. Two further samples excluded for clarity.</p>
+    </div>
+
+    <div class="lab-summary">
+      <div class="lab-stat">
+        <div class="lab-stat-label">Cesium · combined range</div>
+        <div class="lab-stat-value">51 – 443<span class="unit">ppm</span></div>
+      </div>
+      <div class="lab-stat">
+        <div class="lab-stat-label">Rubidium · combined range</div>
+        <div class="lab-stat-value">52 – 280<span class="unit">ppm</span></div>
+      </div>
+      <div class="lab-stat">
+        <div class="lab-stat-label">Lithium · combined range</div>
+        <div class="lab-stat-value">265 – 3,540<span class="unit">ppm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 THESIS -->
+  <div class="section">
+    <div class="section-num">— 02 / Investment thesis</div>
+    <h2 class="section-title">A market where adding <em>one credible alternative supplier</em> is itself a re-rating event.</h2>
+    <div class="two-col">
+      <div class="col">
+        <h4>The structural setup</h4>
+        <p>Cesium has only two active producing operations globally — Tanco in Manitoba and Bikita in Zimbabwe. Both are operated by China's Sinomine Resource Group, which controls effectively the entire cesium formate market.</p>
+        <p>Rubidium is produced almost exclusively as a by-product of Chinese lepidolite mines. Non-Chinese supply is, in practical terms, zero.</p>
+        <p class="muted">When Japan's historical cesium supply from Bikita was interrupted following the 2022 Sinomine acquisition, the country was unable to substitute. There is no spot market.</p>
+      </div>
+      <div class="col">
+        <h4>The opportunity</h4>
+        <p>Cesium and rubidium are now on the critical minerals lists of the United States, Canada, the European Union, and Japan. Defense, GPS timing, deep-well drilling, atomic clocks, and 5G synchronization all depend on uninterrupted Cs and Rb supply.</p>
+        <p>Western governments are actively funding non-Chinese alternatives through grants, offtakes, and friend-shoring programs. A Chihuahua project — clay/zeolite host rock, Mexican concession in good standing, US-aligned trade framework — is geographically and politically aligned.</p>
+        <p class="muted">Lithium is intentionally not the lead. Mexican lithium is reserved to the State and will require a partnership structure when its time comes. For now, Cs and Rb are the cleanly transactable story.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 MARKET -->
+  <div class="section">
+    <div class="section-num">— 03 / Market</div>
+    <h2 class="section-title">Two small markets, two <em>large strategic premia</em>.</h2>
+    <div class="market-grid">
+      <div class="market-card cs">
+        <div class="market-symbol">Cs</div>
+        <div class="market-name">Cesium market</div>
+        <div class="market-row"><div class="market-label">2024 size</div><div class="market-value"><span class="hi">USD 395 M</span></div></div>
+        <div class="market-row"><div class="market-label">2031 projection</div><div class="market-value"><span class="hi">USD 618 M</span> · 6.6% CAGR</div></div>
+        <div class="market-row"><div class="market-label">Active mines</div><div class="market-value">Two globally · both Sinomine</div></div>
+        <div class="market-row"><div class="market-label">Critical-mineral status</div><div class="market-value">US · CA · EU · JP · AU</div></div>
+        <div class="market-row"><div class="market-label">Defense / military share</div><div class="market-value">31.8% of demand</div></div>
+        <div class="market-row"><div class="market-label">Key applications</div><div class="market-value">Atomic clocks · GPS · 5G · drilling fluid · aerospace</div></div>
+      </div>
+      <div class="market-card rb">
+        <div class="market-symbol">Rb</div>
+        <div class="market-name">Rubidium market</div>
+        <div class="market-row"><div class="market-label">2025 size</div><div class="market-value"><span class="hi">USD 960 M</span></div></div>
+        <div class="market-row"><div class="market-label">2030 projection</div><div class="market-value"><span class="hi">USD 1.25 B</span> · 5.4% CAGR</div></div>
+        <div class="market-row"><div class="market-label">Atomic-clock sub-segment</div><div class="market-value">USD 145 M → 310 M · 9.1% CAGR</div></div>
+        <div class="market-row"><div class="market-label">Supply origin</div><div class="market-value">Almost entirely Chinese by-product</div></div>
+        <div class="market-row"><div class="market-label">2025 tariff pressure</div><div class="market-value">US processors actively re-sourcing</div></div>
+        <div class="market-row"><div class="market-label">Key applications</div><div class="market-value">Atomic clocks · fiber-optic glass · quantum · medical imaging</div></div>
+      </div>
+    </div>
+    <div class="pull">
+      <div class="pull-label">Supply concentration</div>
+      <p>"<strong>Cesium brine sells for whatever Sinomine says it sells for.</strong> Introduce a second supplier, even of a different but compatible fluid, and price discovery begins." <span class="pull-cite">— Hallgarten + Company, 2025</span></p>
+    </div>
+  </div>
+
+  <!-- 04 ASSET -->
+  <div class="section">
+    <div class="section-num">— 04 / The asset</div>
+    <h2 class="section-title">Project Elisa, in brief.</h2>
+    <div class="asset-grid">
+      <div class="asset-aside">
+        <h4>What sits on the ground</h4>
+        <p>A concession in Chihuahua state with 350 permitted hectares for metals exploration and an additional 3,000 hectares of contiguous land identified for further exploration, hosting alkali-bearing clay and zeolite assemblages with confirmed Cs, Rb, and Li mineralization.</p>
+        <p>Two ALS Chemex certified analyses (April 2020 and February 2021), conducted by the standard ME-MS61 ICP-MS method, document peak grades of 443 ppm Cs, 280 ppm Rb, and 3,540 ppm Li across multiple samples.</p>
+        <p>The concession is held by Zeolita de Chihuahua S.A. de C.V. and is in good standing, with certified titles available to qualified buyers under NDA.</p>
+      </div>
+      <div class="asset-rows">
+        <div class="asset-row"><div class="asset-label">Codename</div><div class="asset-value">Project Elisa</div></div>
+        <div class="asset-row"><div class="asset-label">Jurisdiction</div><div class="asset-value">Chihuahua, Mexico · USMCA · stable mining tradition</div></div>
+        <div class="asset-row"><div class="asset-label">Area</div><div class="asset-value"><span class="hi">350 ha</span> permitted for metals exploration · <span class="hi">+3,000 ha</span> contiguous upside</div></div>
+        <div class="asset-row"><div class="asset-label">Host geology</div><div class="asset-value">Alkali-bearing clay &amp; zeolite assemblage</div></div>
+        <div class="asset-row"><div class="asset-label">Lead commodities</div><div class="asset-value"><span class="hi">Cesium</span>, <span class="hi">Rubidium</span> · pre-resource exploration stage</div></div>
+        <div class="asset-row"><div class="asset-label">Lab verification</div><div class="asset-value">ALS Chemex CH20063209 &amp; CH21010699 · ICP-MS ME-MS61</div></div>
+        <div class="asset-row"><div class="asset-label">Peak grades</div><div class="asset-value">Cs <span class="hi">443 ppm</span> · Rb <span class="hi">280 ppm</span> · Li <span class="hi">3,540 ppm</span></div></div>
+        <div class="asset-row"><div class="asset-label">Tenure</div><div class="asset-value">Concession in good standing · certified titles under NDA</div></div>
+        <div class="asset-row"><div class="asset-label">Mexican legal status</div><div class="asset-value">Cs and Rb fall outside the 2022 lithium reserve framework</div></div>
+        <div class="asset-row"><div class="asset-label">Owner entity</div><div class="asset-value">Zeolita de Chihuahua S.A. de C.V. · corporate · clean status</div></div>
+        <div class="asset-row"><div class="asset-label">Critical-mineral status</div><div class="asset-value">Eligible for project-status filing with Secretaría de Economía</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 BUYERS -->
+  <div class="section">
+    <div class="section-num">— 05 / Counterparty universe</div>
+    <h2 class="section-title">Three doors. <em>All open.</em></h2>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-label">Tier A</div>
+        <h4>Strategic &amp; industrial</h4>
+        <ul>
+          <li><strong>Cabot Corporation</strong> — Cs in medical &amp; aerospace</li>
+          <li><strong>American Elements</strong> — specialty Rb compounds</li>
+          <li><strong>AccuBeat</strong> — rubidium atomic clocks</li>
+          <li><strong>Excelitas Technologies</strong> — photonics, Cs/Rb</li>
+          <li><strong>Microsemi / Microchip</strong> — telecom Rb clocks</li>
+          <li><strong>Patriot Battery Metals</strong> — Shaakichiuwaanaan Cs</li>
+          <li><strong>Avalon Advanced Materials</strong> — Lilypad Cs exploration</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier B</div>
+        <h4>Financial &amp; royalty</h4>
+        <ul>
+          <li><strong>Sprott Resource Lending</strong> — critical minerals debt</li>
+          <li><strong>Wheaton Precious Metals</strong> — streaming arm</li>
+          <li><strong>Resource Capital Funds</strong> — mining PE</li>
+          <li><strong>Specialty critical-minerals royalty funds</strong></li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-label">Tier C</div>
+        <h4>Government &amp; public finance</h4>
+        <ul>
+          <li><strong>US DoD</strong> · DPA Title III</li>
+          <li><strong>US EXIM / DFC</strong> · supply-chain finance</li>
+          <li><strong>NRCan / CMIF</strong> · friend-shoring</li>
+          <li><strong>METI / JOGMEC (Japan)</strong> · post-Bikita warm lead</li>
+          <li><strong>EU CRM Act</strong> · project-status candidate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 TRANSACTION -->
+  <div class="section">
+    <div class="section-num">— 06 / Transaction</div>
+    <h2 class="section-title">The seller is open to <em>more than one shape</em> of a deal.</h2>
+    <div class="tx-grid">
+      <div class="tx">
+        <h4>Outright sale</h4>
+        <p>Sale of the concession or sale of shares in the holding entity. Reference range subject to grade verification and structure.</p>
+      </div>
+      <div class="tx">
+        <h4>Joint venture</h4>
+        <p>Earn-in over staged exploration milestones. The seller retains an aligned minority position and contributes local knowledge and tenure.</p>
+      </div>
+      <div class="tx">
+        <h4>Royalty / stream</h4>
+        <p>Upfront capital in exchange for a percentage royalty on Cs and Rb production, with optional buy-down structures.</p>
+      </div>
+      <div class="tx">
+        <h4>Technical partnership</h4>
+        <p>Pre-resource collaboration to define Cs/Rb mineralization with an industrial off-taker willing to fund the resource definition phase.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <h3>Open a <em>technical dialogue</em>, not a sales process.</h3>
+        <p>This document is shared under non-disclosure. The first conversation is a technical one: grade thresholds, product forms, documentation standards. Commercial terms come later, once the geological work confirms the story.</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-eyebrow">Direct line</div>
+        <div class="contact-name">Vanessa Danjoux</div>
+        <div class="contact-role">Founder · Mineora</div>
+        <div class="contact-field">
+          <div class="contact-field-label">Email</div>
+          <div class="contact-field-value">vanessa@mineora.ca</div>
+        </div>
+        <div class="contact-field">
+          <div class="contact-field-label">Jurisdiction</div>
+          <div class="contact-field-value">Mexico · Canada</div>
+        </div>
+        <div class="contact-field">
+          <div class="contact-field-label">Mandate</div>
+          <div class="contact-field-value">Exclusive · brokered under signed agreement</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="df-left">Project Elisa · June 2026 · Confidential</div>
+    <div class="df-right">This document is strictly confidential and intended solely for the named recipient. It does not constitute an offer to sell or solicitation of an offer to buy any securities or assets. Laboratory data references certified analyses by ALS Chemex de México S.A. de C.V., method ME-MS61, as documented in Certificates CH20063209 (April 2020) and CH21010699 (February 2021). Resource estimation requires further geological characterization and an independent NI 43-101 technical report, which is on the project roadmap. Any reproduction or disclosure without prior written consent is prohibited.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
